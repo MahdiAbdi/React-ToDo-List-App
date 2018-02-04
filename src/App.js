@@ -5,7 +5,6 @@ import {
   Link,
   Switch
 } from 'react-router-dom'
-import keyIndex from 'react-key-index'
 import Lists from './Lists'
 import List from './List'
 import {Nav, Navbar, NavItem} from 'react-bootstrap';
@@ -26,17 +25,95 @@ class App extends Component {
     this.state = {
       lists: [],
       tasks: [],
+      listIDCounter: 1,
     }
+  }
+
+  generateListID() {
+    let idc = this.state.listIDCounter;
+    let id = "";
+
+    if(idc < 100) {
+      if(idc < 10) {
+        id += "00";
+      }
+      else {
+        id += "0";
+      }
+    }
+
+    id += idc.toString();
+    idc++;
+    this.setState({listIDCounter: idc});
+    console.log("Generated ID is: ",id);
+    return id;
+  }
+
+  generateTaskID(listID) {
+    let lists = this.state.lists;
+    let id=listID;
+    let idc = 0;
+    lists.map(list =>
+      {
+        if(list.id == listID) {
+          idc = list.taskIDCounter;
+          list.taskIDCounter++;
+          this.setState({lists: lists});
+        }
+      }
+    )
+
+    if(idc < 100) {
+      if(idc < 10) {
+        id += "00";
+      }
+      else {
+        id += "0";
+      }
+    }
+
+    id += idc.toString();
+    console.log("Generated ID is: ",id);
+    return id;
+  }
+
+  generateSubTaskID(taskID) {
+    let tasks = this.state.tasks;
+    let id = taskID;
+    let idc = 0;
+    tasks.map(task =>
+      {
+        if(task.id == taskID) {
+          idc = task.subTaskIDCounter;
+          task.subTaskIDCounter++;
+          this.setState({tasks: tasks});
+        }
+      }
+    )
+
+    if(idc < 100) {
+      if(idc < 10) {
+        id += "00";
+      }
+      else {
+        id += "0";
+      }
+    }
+
+    id += idc.toString();
+    console.log("Generated ID is: ",id);
+    return id;
   }
 
   addList(item) {
     let lists = this.state.lists;
     let newList = {
       name: item,
-      status: false
+      status: false,
+      id: this.generateListID(),
+      taskIDCounter: 1,
     }
     lists.push(newList);
-    keyIndex(lists, 1);
     this.setState({lists: lists});
     document.getElementsByTagName('input')[0].value = '';
   }
@@ -44,14 +121,15 @@ class App extends Component {
   addTask(item, listId) {
       let tasks = this.state.tasks;
       let newTask = {
+        id: this.generateTaskID(listId),
         name: item,
         list: listId,
         status: false,
         showModal: false,
+        subTaskIDCounter: 1,
         subTasks: []
       }
       tasks.push(newTask);
-      keyIndex(tasks, 1);
       this.setState({tasks: tasks});
       document.getElementsByTagName('input')[0].value = '';
   }
@@ -59,14 +137,13 @@ class App extends Component {
   addSubTask(item, task) {
       let tasks = this.state.tasks;
       let newSubTask = {
+        id: this.generateSubTaskID(task.id),
         name: item,
-        task: task._nameId,
+        task: task.id,
         status: false
       }
       let index = tasks.indexOf(task);
       tasks[index].subTasks.push(newSubTask);
-      keyIndex(tasks[index].subTasks, 1);
-      keyIndex(tasks, 1);
       this.setState({tasks: tasks});
       document.getElementById('addSubTask').value = '';
   }
@@ -102,7 +179,7 @@ class App extends Component {
     // Remove tasks
     let tasks = this.state.tasks;
     for (let task of tasks) {
-      if(task._listId === item._nameId) {
+      if(task.list === item.id) {
         let index = lists.indexOf(task);
         tasks.splice(index, 1);
       }

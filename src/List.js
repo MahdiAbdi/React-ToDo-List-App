@@ -29,7 +29,7 @@ class List extends Component {
   doesExist(match) {
     let lists = this.props.lists;
     for (let list of lists) {
-      if(list._nameId === match.params.listId) {
+      if(list.id === match.params.listId) {
         return true;
       }
   }
@@ -40,7 +40,7 @@ findList() {
   const {match} = this.props;
   let lists = this.props.lists;
   for (let list of lists) {
-    if(list._nameId === match.params.listId) {
+    if(list.id === match.params.listId) {
       return list.name;
     }
   }
@@ -87,7 +87,7 @@ findList() {
               this.props.tasks.map((task) => {
                 if(task.list === match.params.listId && task.status === false) {
                   return (
-                    <div className="task" key={task._nameId}>
+                    <div className="task" key={task.id}>
                       <div className="check">
                         <Checkbox inline onChange={e => this.props.setCheck(task)}/>
                       </div>
@@ -109,7 +109,7 @@ findList() {
               this.props.tasks.map((task) => {
                 if(task.list === match.params.listId && task.status === true) {
                   return (
-                    <div className="task" key={task._nameId}>
+                    <div className="task" key={task.id}>
                       <div className="check">
                         <Checkbox inline defaultChecked onChange={e => this.props.setCheck(task)}/>
                       </div>

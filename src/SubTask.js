@@ -58,7 +58,7 @@ class SubTask extends Component {
               this.props.task.subTasks.map((subTask) => {
                 if(subTask.status === false) {
                   return (
-                    <div className="task" key={subTask._nameId}>
+                    <div className="task" key={subTask.id}>
                       <div className="check">
                         <Checkbox inline onChange={e => this.props.setCheck(subTask, this.props.task)}/>
                       </div>
@@ -80,7 +80,7 @@ class SubTask extends Component {
               this.props.task.subTasks.map((subTask) => {
                 if(subTask.status === true) {
                   return (
-                    <div className="task" key={subTask._nameId}>
+                    <div className="task" key={subTask.id}>
                       <div className="check">
                         <Checkbox inline defaultChecked onChange={e => this.props.setCheck(subTask, this.props.task)}/>
                       </div>

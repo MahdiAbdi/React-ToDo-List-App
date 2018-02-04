@@ -44,8 +44,8 @@ class Lists extends Component {
         {
           this.props.lists.map(list => {
             return (
-              <div className="task" key={list._nameId}>
-                <Link className="name" to={`lists/${list._nameId}`}>{list.name}</Link>
+              <div className="task" key={list.id}>
+                <Link className="name" to={`lists/${list.id}`}>{list.name}</Link>
                 <div className="del" onClick={e => this.props.removeList(list)}>
                   <Glyphicon bsSize="small" glyph="remove"/> </div>
               </div>
