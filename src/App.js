@@ -212,12 +212,11 @@ class App extends Component {
     return(
       <Router>
         <div>
-          
+
           <Navbar>
             <Navbar.Header>
               <Navbar.Brand>
-                <Link to="lists">ToDo App</Link>
-                Hey
+                <Link to="lists">ToDo Apppppppp</Link>
               </Navbar.Brand>
             </Navbar.Header>
             <Nav>
