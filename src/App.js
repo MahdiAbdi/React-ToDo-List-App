@@ -45,7 +45,7 @@ class App extends Component {
     id += idc.toString();
     idc++;
     this.setState({listIDCounter: idc});
-    console.log("Generated ID is: ",id);
+
     return id;
   }
 
@@ -73,7 +73,7 @@ class App extends Component {
     }
 
     id += idc.toString();
-    console.log("Generated ID is: ",id);
+
     return id;
   }
 
@@ -101,7 +101,6 @@ class App extends Component {
     }
 
     id += idc.toString();
-    console.log("Generated ID is: ",id);
     return id;
   }
 
