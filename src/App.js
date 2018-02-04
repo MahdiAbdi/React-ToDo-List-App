@@ -225,12 +225,12 @@ class App extends Component {
           </Navbar>
 
           <div className="container">
-            <Route exact path="lists"
+            <Route path="/lists"
               render={(props) => <Lists {...props} lists={this.state.lists}
                 tasks={this.state.tasks}
                 addList={this.addList} removeList={this.removeList}></Lists>} />
 
-            <Route path="lists/:listId"
+            <Route path="/lists/:listId"
               render={(props) => <List {...props} lists={this.state.lists}
                 tasks={this.state.tasks} addTask={this.addTask} removeTask={this.removeTask}
                 setCheck={this.setCheck} addSubTask={this.addSubTask}

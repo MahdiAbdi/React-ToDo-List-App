@@ -47,7 +47,6 @@ findList() {
 }
 
   render() {
-    console.log("List.JS")
     const {match} = this.props;
     if(this.doesExist(match)) {
       return(
