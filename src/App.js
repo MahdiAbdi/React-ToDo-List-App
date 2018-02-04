@@ -216,7 +216,7 @@ class App extends Component {
           <Navbar>
             <Navbar.Header>
               <Navbar.Brand>
-                <Link to="/lists">ToDo App</Link>
+                <Link to="lists">ToDo App</Link>
               </Navbar.Brand>
             </Navbar.Header>
             <Nav>
@@ -225,7 +225,7 @@ class App extends Component {
           </Navbar>
 
           <div className="container">
-            <Route exact path="/lists"
+            <Route exact path="lists"
               render={(props) => <Lists {...props} lists={this.state.lists}
                 tasks={this.state.tasks}
                 addList={this.addList} removeList={this.removeList}></Lists>} />

@@ -134,7 +134,7 @@ findList() {
           <h1>
             This is a 404 for sure!
           </h1>
-          <h3><Link to="/lists">Find a Proper "Path" Here :D</Link></h3>
+          <h3><Link to="lists">Find a Proper "Path" Here :D</Link></h3>
         </div>
       )
     }
