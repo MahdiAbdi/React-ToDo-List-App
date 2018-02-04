@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import {Route, Link} from 'react-router-dom'
-import List from './List'
-import { FormGroup, FormControl, InputGroup, Glyphicon, Checkbox } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
+import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 
 class Lists extends Component {
   constructor(props) {
@@ -11,7 +10,6 @@ class Lists extends Component {
     }
   }
   render() {
-    const {match} = this.props;
     return (
       <div className="container">
         <h1>Lists</h1>

@@ -55,7 +55,7 @@ class App extends Component {
     let idc = 0;
     lists.map(list =>
       {
-        if(list.id == listID) {
+        if(list.id === listID) {
           idc = list.taskIDCounter;
           list.taskIDCounter++;
           this.setState({lists: lists});
@@ -83,7 +83,7 @@ class App extends Component {
     let idc = 0;
     tasks.map(task =>
       {
-        if(task.id == taskID) {
+        if(task.id === taskID) {
           idc = task.subTaskIDCounter;
           task.subTaskIDCounter++;
           this.setState({tasks: tasks});

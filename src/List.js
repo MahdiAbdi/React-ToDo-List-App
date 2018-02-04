@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormGroup, FormControl, InputGroup, Glyphicon, Checkbox, Modal, Button } from 'react-bootstrap';
+import { FormGroup, FormControl, InputGroup, Glyphicon, Checkbox } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import SubTask from './SubTask';
 
