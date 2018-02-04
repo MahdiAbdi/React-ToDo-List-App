@@ -220,7 +220,7 @@ class App extends Component {
               </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-              <NavItem eventKey={1}><Link to="/lists">Home</Link></NavItem>
+              <NavItem eventKey={1}><Link to="lists">Home</Link></NavItem>
             </Nav>
           </Navbar>
 
@@ -230,7 +230,7 @@ class App extends Component {
                 tasks={this.state.tasks}
                 addList={this.addList} removeList={this.removeList}></Lists>} />
 
-            <Route path="/lists/:listId"
+            <Route path="lists/:listId"
               render={(props) => <List {...props} lists={this.state.lists}
                 tasks={this.state.tasks} addTask={this.addTask} removeTask={this.removeTask}
                 setCheck={this.setCheck} addSubTask={this.addSubTask}
